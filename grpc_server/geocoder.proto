@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package geocoder;
+
+service Geocoder {
+    rpc ReverseGeoCode(GeoCodeRequest) returns (GeocodeResponse) {}
+}
+
+message LatLng {
+    float latitude = 1;
+    float longitude = 2;
+}
+
+message GeoCodeRequest {
+    LatLng location = 1;
+}
+
+message GeocodeResponse {
+  string address = 1;
+  LatLng location = 2;
+}
